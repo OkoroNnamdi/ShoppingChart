@@ -34,6 +34,14 @@ public class program
         app.UseEndpoints(endpoints =>
         {
             endpoints.MapControllerRoute(
+           "Pages",
+            "{slug?}",
+            defaults: new {controller ="Pages", action="Page"}
+           // name:"default",
+          //  pattern:"{controller=pages}/{action=page}/{id?}"
+           );
+
+            endpoints.MapControllerRoute(
               name: "areas",
               pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
             );
